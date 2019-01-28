@@ -17,7 +17,7 @@ ENV PS1               '\[\033[36;1m\]\u\[\033[97m\]@\[\033[32m\]${CONTAINERNAME}
 
 RUN addgroup -g $SHARED_GROUP_ID $SHARED_GROUP_NAME \
  && addgroup "${RUN_GROUP}" \
- && adduser -S -D -H -G "${RUN_GROUP}" "${RUN_USER}" \
+ && adduser -S -D -G "${RUN_GROUP}" "${RUN_USER}" \
  && adduser ${RUN_USER} ${SHARED_GROUP_NAME} \
  && apk update --no-cache --purge && apk upgrade --no-cache --purge
 
