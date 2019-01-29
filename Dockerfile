@@ -9,6 +9,7 @@ ENV CONTAINERNAME     "very-base"
 ENV WWWUSER           "${wwwuser}"
 ENV RUN_USER          "somebody"
 ENV RUN_GROUP         "somebody"
+ENV RUN_HOME          "/home/somebody"
 
 ENV LANG              "${lang}"
 ENV SHARED_GROUP_NAME "shared-access"
