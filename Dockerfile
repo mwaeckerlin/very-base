@@ -20,7 +20,7 @@ RUN addgroup -g $SHARED_GROUP_ID $SHARED_GROUP_NAME \
  && addgroup "${RUN_GROUP}" \
  && adduser -S -D -G "${RUN_GROUP}" "${RUN_USER}" \
  && adduser ${RUN_USER} ${SHARED_GROUP_NAME} \
- && apk update --no-cache --purge && apk upgrade --no-cache --purge
+ && apk upgrade --no-cache --purge --clean-protected
 
 # allow derieved images to overwrite the language
 ONBUILD ARG lang
