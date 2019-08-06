@@ -15,8 +15,8 @@ ENV LANG              "${lang}"
 ENV SHARED_GROUP_NAME "shared-access"
 ENV SHARED_GROUP_ID   "500"
 ENV PS1               '\[\033[36;1m\]\u\[\033[97m\]@\[\033[32m\]${CONTAINERNAME}[\[\033[36m\]\h\[\033[97m\]]:\[\033[37m\]\w\[\033[0m\]\$ '
-ENV APKI "apk add --no-cache --purge --clean-protected -u"
-ENV APKS "apk search --no-cache"
+ENV PKG_INSTALL "apk add --no-cache --purge --clean-protected -u"
+ENV PKG_SEARCH  "apk search --no-cache"
 
 RUN addgroup -g $SHARED_GROUP_ID $SHARED_GROUP_NAME \
  && addgroup "${RUN_GROUP}" \
