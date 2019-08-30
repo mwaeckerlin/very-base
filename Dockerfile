@@ -19,6 +19,7 @@ ENV PS1               '\[\033[36;1m\]\u\[\033[97m\]@\[\033[32m\]${CONTAINERNAME}
 ENV PKG_INSTALL "apk add --no-cache --purge --clean-protected -u"
 ENV PKG_REMOVE  "apk del --no-cache"
 ENV PKG_SEARCH  "apk search --no-cache"
+ENV ALLOW_USER  "chown -R ${RUN_USER}:${RUN_GROUP}"
 
 RUN addgroup -g $SHARED_GROUP_ID $SHARED_GROUP_NAME \
  && addgroup "${RUN_GROUP}" \
