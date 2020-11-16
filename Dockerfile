@@ -10,6 +10,7 @@ ENV CONTAINERNAME "very-base"
 COPY --from=alpine / /
 COPY --from=user /etc/passwd /etc/passwd
 COPY --from=user /etc/group /etc/group
+COPY --from=user --chown=${RUN_USER} /home/${RUN_USER}  /home/${RUN_USER}
 CMD ["/bin/sh"]
 USER root
 
