@@ -1,21 +1,11 @@
-Minimum Base Docker Image without Codingrule Enforcement
-========================================================
+# Minimum Alpine Docker Image with Definitions and Non Root User
 
-Docker image as very first base, even before [mwaeckerlin/base](https://github.com/mwaeckerlin/base), Use this image as base for all your docker container only if there is a good reason for not using [mwaeckerlin/base](https://github.com/mwaeckerlin/base).
+Minimal docker base image built on alpine. Use this image as base in your build stestageps, then add an additional stage for production, where you inherot from [mwaeckerlin/scratch](https://github.com/mwaeckerlin/scratch).
 
-Built from Alpine Linux with nicer prompt, without defined start script and
-health check.
+Image size: 5.59MB
 
+See [mwaeckerlin/nginx](https://github.com/mwaeckerlin/nginx) as an example on how to build a service using this image.
 
-Shared Volumes
---------------
+Use [mwaeckerlin/nodejs-build](https://github.com/mwaeckerlin/nodejs-build) as build image for Node.JS applications.
 
-If you need access to the same external volume path from two containers, add your user to the group specified in environment variable `SHARED_GROUP_NAME` and give access rights and ownership of the sared ressource to this group, e.g., if your user is in variable `USER`, add to `Dockerfile`:
-
-    RUN addgroup $USER $SHARED_GROUP_NAME
-    VOLUME /var/common
-
-And add to `start.sh`:
-
-    chgrp $SHARED_GROUP_NAME /var/common
-    chmod g+rwx /var/common
+See [mwaeckerlin/nodejs-build](https://github.com/mwaeckerlin/nodejs-build) as production ready run time base image for your Node.JS applications.
